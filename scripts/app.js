@@ -30,6 +30,11 @@ DOM.updateGuessedWord(STATE.movieGuess);
  */
 
 document.addEventListener("keyup", function (e) {
+
+    if (STATE.attempts == 0 || STATE.movieGuess == STATE.movie) {
+        return;
+    }
+
     let keyPressed = e.key.toLowerCase();
     if (!/^[a-z]$/i.test(keyPressed)) {
         // esto no es una letra de la a la z
@@ -59,6 +64,8 @@ document.addEventListener("keyup", function (e) {
 
         STATE.checkedLetters.push(keyPressed);
         DOM.addGuessedLetter(keyPressed, isCorrect);
+
+
     }
 
     for (let i = 0; i < STATE.movie.length; i++) {
@@ -70,5 +77,15 @@ document.addEventListener("keyup", function (e) {
 
     }
 
+    // Hemos ganado?
+    console.log(STATE.movie, STATE.movieGuess);
+
+    if (STATE.movie == STATE.movieGuess) {
+        const audio = new Audio('../sounds/win.wav');
+        audio.play();
+        DOM.showWinnerMessage();
+    }
+
     DOM.updateGuessedWord(STATE.movieGuess);
 })
+
