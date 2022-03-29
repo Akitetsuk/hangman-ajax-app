@@ -34,6 +34,11 @@ Completa el proyecto siguiendo los requisitos descritos en **requisitos.txt**
    de promoción); y mostrarla al usuario.
 2. Esta api se ubica en [Api Movies](https://api.themoviedb.org)
 
+```
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=f67a8ad780c75b59b2e185315b4e7818&language=en-US&page=1&include_adult=false&query=${title}`
+    const path_to_images = 'https://image.tmdb.org/t/p/original'
+```
+
 ---
 
 ## Modularización
@@ -44,3 +49,4 @@ Diferentes ficheros para cada grupo de funcionalidades.
 - Mantener el estado de la app: palabra a adivinar, letras ya pulsada, intentos, número de palabras de la película a adivinar
 - Manipulación del DOM: actualizar número intentor, mostrar asteríscos o letra adivinada
 - Archivo "inicial"; punto de entrada de la aplicación: configurar el juego (obtener palabra a adivinar, resetear número de intentos, etc).
+
